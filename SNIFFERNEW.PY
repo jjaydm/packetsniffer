@@ -65,6 +65,6 @@ while True:
 # IDS Rules for UDP
 # ...
         elif protocol == 1:
-            icmp_type, code, checksum, = parce_icmp_header(raw_data)
+            icmp_type, code, checksum, = parse_icmp_header(raw_data)
 # IDS Rules for ICMP
 # ...
