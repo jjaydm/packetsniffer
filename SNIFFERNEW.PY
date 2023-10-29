@@ -55,10 +55,16 @@ while True:
     if eth_protocol == 8:
         ttl, protocol, src_ip, dest_ip = parse_ip_header(raw_data)
 
-        if protocol == 6:
+               if protocol == 6:
             src_port, dest_port, sequence, ack, offset_reserved, tcp_flags, window, checksum, urgent_pointer = parse_tcp_header(raw_data)
-            # IDS Rules for TCP
-            # ...
 
+# IDS Rules for TCP
+# ...    
         elif protocol == 17:
             src_port, dest_port, length, checksum = parce_udp_header
+# IDS Rules for UDP
+# ...
+        elif protocol == 1:
+            icmp_type, code, checksum, = parce_icmp_header(raw_data)
+# IDS Rules for ICMP
+# ...
